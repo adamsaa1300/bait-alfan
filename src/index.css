@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Aref+Ruqaa+Ink:wght@400;700&family=Reem+Kufi+Fun:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink-50:  #fdf2f8;
+  --pink-100: #fce7f3;
+  --pink-200: #fbcfe8;
+  --pink-300: #f9a8d4;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  --pink-600: #db2777;
+  --white:    #ffffff;
+  --gray-50:  #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+
+  --font-display: 'Aref Ruqaa Ink', serif;
+  --font-heading: 'Cairo', sans-serif;
+  --font-body: 'Cairo', sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(236,72,153,0.08);
+  --shadow-md: 0 4px 16px rgba(236,72,153,0.12);
+  --shadow-lg: 0 8px 32px rgba(236,72,153,0.18);
+  --radius:    14px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--pink-50);
+  color: var(--gray-900);
+  direction: rtl;
+  min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+img { max-width: 100%; display: block; }
+input, select, textarea {
+  font-family: var(--font-body);
+  direction: rtl;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--pink-100); }
+::-webkit-scrollbar-thumb { background: var(--pink-300); border-radius: 3px; }
+
+/* Utility */
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-600));
+  color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(236,72,153,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(236,72,153,0.4);
+}
+
+.btn-outline {
+  border: 2px solid var(--pink-400);
+  color: var(--pink-600);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  background: var(--pink-100);
+}
+
+.badge-sale {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-unavailable {
+  background: var(--gray-400);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

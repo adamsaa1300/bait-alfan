@@ -19,12 +19,10 @@ export default function Navbar({ onSearch }) {
   const [showInstall, setShowInstall] = useState(false);
 
   useEffect(() => {
-    const ua = navigator.userAgent;
-    if (/android/i.test(ua)) setShowInstall(true);
-
     const handler = (e) => {
       e.preventDefault();
       setInstallPrompt(e);
+      setShowInstall(true);
     };
     window.addEventListener("beforeinstallprompt", handler);
     window.addEventListener("appinstalled", () => setShowInstall(false));

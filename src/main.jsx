@@ -10,6 +10,12 @@ import CampaignsPage from "./pages/CampaignsPage";
 import Dashboard from "./pages/Dashboard/index";
 import "./index.css";
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>

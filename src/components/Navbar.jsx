@@ -19,20 +19,24 @@ export default function Navbar({ onSearch }) {
   const [showInstall, setShowInstall] = useState(false);
 
   useEffect(() => {
+    const ua = navigator.userAgent;
+    if (/android/i.test(ua)) setShowInstall(true);
+
     const handler = (e) => {
       e.preventDefault();
       setInstallPrompt(e);
-      setShowInstall(true);
     };
     window.addEventListener("beforeinstallprompt", handler);
+    window.addEventListener("appinstalled", () => setShowInstall(false));
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const handleInstall = async () => {
-    if (!installPrompt) return;
-    installPrompt.prompt();
-    const { outcome } = await installPrompt.userChoice;
-    if (outcome === "accepted") setShowInstall(false);
+    if (installPrompt) {
+      installPrompt.prompt();
+      const { outcome } = await installPrompt.userChoice;
+      if (outcome === "accepted") setShowInstall(false);
+    }
   };
 
   const handleSearch = (val) => { setQ(val); onSearch?.(val); };

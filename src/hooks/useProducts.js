@@ -30,7 +30,7 @@ export function useProducts() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const q = query(collection(db, "products"), orderBy("order", "asc"));
+    const q = query(collection(db, "products"), orderBy("order", "desc"));
     const unsub = onSnapshot(q, (snap) => {
       setProducts(snap.docs.map(d => ({ id: d.id, ...d.data() })));
       setLoading(false);
